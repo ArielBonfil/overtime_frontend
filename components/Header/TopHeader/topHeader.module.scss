@@ -1,0 +1,30 @@
+$principalOrange: #ff3b2f;
+$backgroundColor: #1c1a2b;
+.container {
+  padding: 1rem;
+  background-color: $backgroundColor;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list {
+  list-style: none;
+  background-color: #1c1a2b;
+  padding: 0;
+
+  li {
+    color: $principalOrange;
+  }
+}
+.menuToggler {
+  display: flex;
+
+  svg {
+    rect {
+      fill: $principalOrange;
+    }
+  }
+}

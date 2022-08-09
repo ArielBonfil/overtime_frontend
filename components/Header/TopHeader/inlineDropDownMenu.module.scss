@@ -1,0 +1,33 @@
+$principalOrange: #ff3b2f;
+$backgroundColor: #1c1a2b;
+.inlineDropDownMenuContainer
+{
+ 
+/*   align-self: center;
+  width: auto;
+  ul{
+    display: flex;
+    flex-direction: row;
+  } */
+}
+@media (min-width: 1024px) {
+      .inlineDropwDonwMenuContainer{
+        align-self: center;
+        a{
+          text-transform: uppercase;
+          color: white;
+          cursor: pointer;
+          margin: 0 1rem;
+        }
+        a:hover {
+          color: $principalOrange;
+        }
+        ul{
+          display: flex;
+          list-style: none;
+        
+        }
+       
+      }
+    
+  }

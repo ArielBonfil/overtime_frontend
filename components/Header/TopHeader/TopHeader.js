@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "./TopHeader.module.scss";
+import styles from "./topHeader.module.scss";
+import InlineDropDownMenu from "./InlineDropDownMenu";
 export default function TopHeader() {
   const [display, setDisplay] = useState(false);
+  const [displayMode, setdisplayMode] = useState(null)
+  useEffect(()=> {
+    window.innerWidth <= 1024 ? setdisplayMode('mobile') : setdisplayMode('desktop') 
+    window.addEventListener('resize', ()=> {
+        window.innerWidth <= 1024 ? setdisplayMode('mobile') : setdisplayMode('desktop') 
+    })
+
+ }, [])
 
   return (
     <div className={styles.container}>
@@ -19,13 +28,39 @@ export default function TopHeader() {
           </svg>
         </div>
 
-        <img src="/images/overtimeLogo.png" height="45px" width="64px" />
+        <div className={styles.logoContainer}>
+          {" "}
+          <img src="/images/overtimeLogo.png" height="45px" width="64px" />
+        </div>
       </div>
-      {display && (
-        <ul className={styles.list}>
-         
-        </ul>
-      )}
+      {displayMode === 'mobile' ? 
+      <>{display && (
+        <div className={styles.dropdownMenuContainer}>
+          <div className={styles.mainContent}>
+            <div onClick={() => setDisplay(!display)}>
+              <img src="/images/closeX.png" height="20px" width="20px" />
+            </div>
+            <div className={styles.logoContainer}>
+              {" "}
+              <img src="/images/overtimeLogo.png" height="45px" width="64px" />
+            </div>
+          </div>
+          <div className={styles.dropdownMenuContent}>
+            <h1>Overtime</h1>
+            <ul className={styles.socialMediaList}>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Whatsapp</li>
+            </ul>
+            <InlineDropDownMenu/>
+          </div>
+        </div>
+      )}</>
+    :
+    <InlineDropDownMenu/>
+    }
+      
+    
     </div>
   );
 }

@@ -3,12 +3,23 @@ $backgroundColor: #1c1a2b;
 .container {
   padding: 1rem;
   background-color: $backgroundColor;
+
+}
+.dropdownMenuContainer{
+  padding: 1rem;
+}
+@media (min-width: 1024px) {
+  .container{
+    display: flex;
+  }
+  .dropdownMenuContainer, .menuToggler { 
+    display: none;
+  }
 }
 
 .mainContent {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .list {
   list-style: none;
@@ -20,11 +31,41 @@ $backgroundColor: #1c1a2b;
   }
 }
 .menuToggler {
-  display: flex;
-
+  width: fit-content;
   svg {
     rect {
       fill: $principalOrange;
+    }
+  }
+}
+.logoContainer {
+
+}
+.dropdownMenuContainer
+{
+  padding: 1rem;
+  background-color:#3B336A;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  .dropdownMenuContent{
+    text-align: center;
+    .socialMediaList{
+      display: flex;
+      justify-content: center;
+      li{
+        margin: 0 1rem;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    h1{
+      color: $principalOrange;
+      text-transform: uppercase;
     }
   }
 }
